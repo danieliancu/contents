@@ -3,12 +3,13 @@ import cors from "cors";
 import puppeteer from "puppeteer";
 import mysql from "mysql2/promise";
 import dotenv from "dotenv";
+import { createServer } from "http";
 
 dotenv.config();
 
 const app = express();
 
-// middleware CORS și parsare JSON
+// Middleware CORS și parsare JSON
 app.use(cors());
 app.use(express.json());
 
@@ -197,7 +198,9 @@ app.get("/articles", async (req, res) => {
   }
 });
 
-// Exportă aplicația pentru Vercel
-export default app;
+// Crearea serverului pentru compatibilitate cu funcțiile serverless
+const server = createServer(app);
 
-
+export default (req, res) => {
+  server.emit("request", req, res);
+};
