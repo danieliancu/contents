@@ -1,0 +1,228 @@
+* {
+  box-sizing: border-box;
+  margin:0px !important;
+}
+
+.container {
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: center;
+  gap:10px;
+  max-width:1400px;
+  margin:auto !important;
+}
+
+.container-news {
+  background:white;
+  box-shadow: 0 0 2px lightgrey;
+  border-radius:10px;
+  width:300px;
+  transition: box-shadow 0.3s ease; /* Adaugă un delay de 0.3 secunde */
+}
+
+.container-news:hover {
+  box-shadow: 0 0 10px black;
+}
+
+.container-news strong
+{
+  padding: 0 0 0 20px;
+}
+
+.container h3 {
+  padding:10px 20px 20px 20px;
+  color:black;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.container img {
+  width:100%;
+  height:180px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+
+
+.menu button {
+  margin-right:5px !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  width:auto;
+  height:30px;
+  vertical-align: middle;
+  opacity: .6;
+  transition: opacity 0.25s;
+}
+
+.menu button:hover,
+.menu button:focus {
+  opacity: 1;
+}
+
+.menu button.active {
+  opacity: 1; /* Butonul selectat va avea opacitate maximă */
+}
+
+.menu .button-large {
+  width:100px;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: inherit;
+}
+
+
+
+h1 {
+  font-size: 2.2em;
+  line-height: 1.1;
+}
+
+.menu {
+  margin-bottom: 20px !important;
+  position: sticky;
+  top: 0;
+  background: white;
+  box-shadow: 0 3px 3px grey;
+  padding: 20px;
+  z-index:2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color:lightgrey;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+
+
+@media only screen and (max-width: 1000px) {
+  .menu>div:last-child {
+    display: none;
+  }
+}
+
+
+
+/* carusel  */
+
+
+
+
+
+
+.slick-list {
+  width: 400px;
+  border-radius:10px;
+  box-shadow: 0 0 2px lightgrey;
+  height: 300px !important;
+  width: 610px !important;
+}
+
+.slick-slide strong {
+  padding: 10px 0 0 20px;
+}
+
+
+
+.slick-art {
+  background-size: cover !important;
+  height: 400px;
+  position: relative;
+}
+
+.slick-art>div {
+  position: absolute;
+  bottom:25%;
+  padding:0 20px;
+}
+
+.slick-art h3,
+.slick-art strong
+{
+  color:white;
+  text-shadow: 0 0 20px black;
+  font-weight:bold;
+}
+
+.slick-art h3 {
+  font-size:24px;
+  line-height:30px;
+  font-weight: 500;
+}
+
+.slick-prev, .slick-next {
+  z-index:1 !important;
+}
+
+.slick-prev {
+  left: 5px !important;
+}
+
+.slick-next {
+  right: 5px !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .slick-list {
+    max-width:300px;
+  }
+  .container img {
+    width:30%;
+    height:100%;
+    border-radius: 0;
+    float:left;
+    margin-right: 10px !important;
+  }  
+  .container-news {
+    padding:10px;
+    overflow:hidden;
+  }
+  .slick-dots {
+    display: none !important;
+  }
+  .container-news strong {
+    padding:0;
+  }
+}
