@@ -13,13 +13,13 @@ const App = () => {
   useEffect(() => {
     const fetchAllData = async () => {
       try {
-        // productie:
-        // const response = await fetch("/api/articles");
-
-        // local:
-        const response = await fetch("http://localhost:5000/articles");
+        const baseUrl =
+          process.env.NODE_ENV === "development"
+            ? "http://localhost:5000" // URL pentru local
+            : ""; // URL gol pentru producție (Vercel adaugă automat `/api`)
+        const response = await fetch(`${baseUrl}/api/articles`);
         const result = await response.json();
-
+    
         if (response.ok) {
           const shuffledData = shuffleArray(result.data);
           setAllData(shuffledData);
@@ -31,6 +31,7 @@ const App = () => {
         setError("Request failed");
       }
     };
+    
 
     fetchAllData();
   }, []);
